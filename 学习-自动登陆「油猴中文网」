@@ -11,15 +11,11 @@
 (function() {
     'use strict';
 
-
-
-    var my_username = "十二先生";
-    var my_password = "a1723564";
+    var my_username = "******";
+    var my_password = "******";
 
     if (document.querySelector(".comiis_dlq a") == null)
     {
-        // 点击签到
-        // document.querySelector("#mn_N462e > a").click();
         return;
     };
 
