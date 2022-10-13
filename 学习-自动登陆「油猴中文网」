@@ -1,0 +1,40 @@
+// ==UserScript==
+// @name         学习-自动登陆「油猴中文网」
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  自动填写用户名和密码，并点击登陆。
+// @author       Rebort
+// @match        https://bbs.tampermonkey.net.cn/
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+
+
+    var my_username = "十二先生";
+    var my_password = "a1723564";
+
+    if (document.querySelector(".comiis_dlq a") == null)
+    {
+        // 点击签到
+        // document.querySelector("#mn_N462e > a").click();
+        return;
+    };
+
+    document.querySelector(".comiis_dlq a").click();
+
+    setTimeout(function(){//2s后再进行登录
+        if(document.querySelector("[name=username]")==null){
+            //没有找到表示登录了,不再执行后续代码
+            return;
+        }
+
+        //未登录,执行登录代码
+        document.querySelector("[name=username]").value = my_username;
+        document.querySelector("[name=password]").value = my_password;
+        document.querySelector("[name=cookietime]").checked = true;
+        document.querySelector(".rfm button").click();
+    },2000);
+})();
