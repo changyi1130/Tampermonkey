@@ -1,0 +1,26 @@
+// ==UserScript==
+// @name         学习-控制播放速度
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  控制播放速度
+// @author       Twelve
+// @match        https://www.bilibili.com/video/*
+// @grant        unsafeWindow
+// @run-at       document-start
+// ==/UserScript==
+
+
+'use strict';
+
+// Your code here...
+
+let rate = 4
+// 获取不到 video，查找元素显示 null。
+unsafeWindow.onload = function()
+{
+    unsafeWindow.document.querySelector("video").onplay = function()
+    {
+        unsafeWindow.document.querySelector("video").playbackRate = rate;
+        unsafeWindow.document.querySelector("video").volume = 0.5;
+    };
+};
